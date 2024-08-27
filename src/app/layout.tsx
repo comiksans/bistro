@@ -6,11 +6,11 @@ import '@/styles/tailwind.css'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'TaxPal - Accounting made simple for small businesses',
+    template: '%s - Skyseer',
+    default: 'Skyseer - Satellite & ML-driven mineral exploration',
   },
   description:
-    'Most bookkeeping software is accurate, but hard to use. We make the opposite trade-off, and hope you don’t get audited.',
+    'Powerful ore prospecting tool using multispectral satellite image analysis',
 }
 
 const inter = Inter({

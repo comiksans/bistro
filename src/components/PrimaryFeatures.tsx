@@ -67,10 +67,6 @@ Image source: Jing, et al. 2014
               </div>
             </div>
             <div className="sm:px-6 lg:px-0">
-                <div
-                  aria-hidden="true"
-                  className="absolute -inset-y-px w-full origin-bottom-left bg-indigo-100 opacity-20" // Removed ring-1 and ring-inset
-                />
                 <div className="mx-auto max-w-2xl sm:mx-0 sm:max-w-none">
                   <Image
                     alt="Product screenshot"
