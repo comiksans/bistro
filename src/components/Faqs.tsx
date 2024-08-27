@@ -1,110 +1,76 @@
-import Image from 'next/image'
+import Image from 'next/image';
+import { Container } from '@/components/Container';
+import angelaImage from '@/images/avatars/angela.png';
+import jessieImage from '@/images/avatars/jessie.jpg';
 
-import { Container } from '@/components/Container'
-import backgroundImage from '@/images/background-faqs.jpg'
-
-const faqs = [
-  [
-    {
-      question: 'Does TaxPal handle VAT?',
-      answer:
-        'Well no, but if you move your company offshore you can probably ignore it.',
-    },
-    {
-      question: 'Can I pay for my subscription via purchase order?',
-      answer: 'Absolutely, we are happy to take your money in all forms.',
-    },
-    {
-      question: 'How do I apply for a job at TaxPal?',
-      answer:
-        'We only hire our customers, so subscribe for a minimum of 6 months and then let’s talk.',
-    },
-  ],
-  [
-    {
-      question: 'What was that testimonial about tax fraud all about?',
-      answer:
-        'TaxPal is just a software application, ultimately your books are your responsibility.',
-    },
-    {
-      question:
-        'TaxPal sounds horrible but why do I still feel compelled to purchase?',
-      answer:
-        'This is the power of excellent visual design. You just can’t resist it, no matter how poorly it actually functions.',
-    },
-    {
-      question:
-        'I found other companies called TaxPal, are you sure you can use this name?',
-      answer:
-        'Honestly not sure at all. We haven’t actually incorporated or anything, we just thought it sounded cool and made this website.',
-    },
-  ],
-  [
-    {
-      question: 'How do you generate reports?',
-      answer:
-        'You just tell us what data you need a report for, and we get our kids to create beautiful charts for you using only the finest crayons.',
-    },
-    {
-      question: 'Can we expect more inventory features?',
-      answer: 'In life it’s really better to never expect anything at all.',
-    },
-    {
-      question: 'I lost my password, how do I get into my account?',
-      answer:
-        'Send us an email and we will send you a copy of our latest password spreadsheet so you can find your information.',
-    },
-  ],
+const people = [
+  {
+    name: 'Angela Su',
+    role: 'CEO & Co-Founder',
+    imageUrl: angelaImage,
+    bio: 'CS & Finance Graduate from MIT. Investment banking at BofA',
+    xUrl: '#',
+    linkedinUrl: 'https://www.linkedin.com/in/angelasu/',
+  },
+  {
+    name: 'Jessie Sui',
+    role: 'CTO & Co-Founder',
+    imageUrl: jessieImage,
+    bio: 'Computer Science from Georgia Tech. Ex-Google ML infra',
+    xUrl: '#',
+    linkedinUrl: 'https://www.linkedin.com/in/jessiesui/',
+  },
+  // More people...
 ]
 
 export function Faqs() {
   return (
     <section
-      id="faq"
-      aria-labelledby="faq-title"
-      className="relative overflow-hidden bg-slate-50 py-20 sm:py-32"
+      id="team"
+      className="bg-slate-50 py-20 sm:py-32"
     >
-      <Image
-        className="absolute left-1/2 top-0 max-w-none -translate-y-1/4 translate-x-[-30%]"
-        src={backgroundImage}
-        alt=""
-        width={1558}
-        height={946}
-        unoptimized
-      />
-      <Container className="relative">
-        <div className="mx-auto max-w-2xl lg:mx-0">
-          <h2
-            id="faq-title"
-            className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl"
-          >
-            Frequently asked questions
-          </h2>
-          <p className="mt-4 text-lg tracking-tight text-slate-700">
-            If you can’t find what you’re looking for, email our support team
-            and if you’re lucky someone will get back to you.
+    <div className="bg-white py-24 md:py-32">
+      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-5">
+        <div className="max-w-2xl xl:col-span-2">
+          <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">About the team</h2>
+          <p className="mt-6 text-lg leading-8 text-gray-600">
+            We met when we were 5 years old and bonded over playing Minecraft. Now we use satellite ML to mine minerals.
           </p>
         </div>
-        <ul
-          role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-8 lg:max-w-none lg:grid-cols-3"
-        >
-          {faqs.map((column, columnIndex) => (
-            <li key={columnIndex}>
-              <ul role="list" className="flex flex-col gap-y-8">
-                {column.map((faq, faqIndex) => (
-                  <li key={faqIndex}>
-                    <h3 className="font-display text-lg leading-7 text-slate-900">
-                      {faq.question}
-                    </h3>
-                    <p className="mt-4 text-sm text-slate-700">{faq.answer}</p>
+        <ul role="list" className="-mt-12 space-y-12 divide-y divide-gray-200 xl:col-span-3">
+          {people.map((person) => (
+            <li key={person.name} className="flex flex-col gap-10 pt-12 sm:flex-row">
+              <Image
+                alt={person.name}
+                src={person.imageUrl}
+                width={208} // Adjust width and height as needed
+                height={260}
+                className="aspect-[4/5] w-52 flex-none rounded-2xl object-cover"
+              />
+              <div className="max-w-xl flex-auto">
+                <h3 className="text-lg font-semibold leading-8 tracking-tight text-gray-900">{person.name}</h3>
+                <p className="text-base leading-7 text-gray-600">{person.role}</p>
+                <p className="mt-6 text-base leading-7 text-gray-600">{person.bio}</p>
+                <ul role="list" className="mt-6 flex gap-x-6">
+                  <li>
+                    <a href={person.linkedinUrl} className="text-gray-400 hover:text-gray-500">
+                      <span className="sr-only">LinkedIn</span>
+                      <svg fill="currentColor" viewBox="0 0 20 20" aria-hidden="true" className="h-5 w-5">
+                        <path
+                          d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
+                          clipRule="evenodd"
+                          fillRule="evenodd"
+                        />
+                      </svg>
+                    </a>
                   </li>
-                ))}
-              </ul>
+                </ul>
+              </div>
             </li>
           ))}
         </ul>
-      </Container>
+      </div>
+    </div>
     </section>
   )
 }
