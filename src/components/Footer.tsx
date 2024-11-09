@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
-import skyseer from '@/images/logos/skyseer2.png'
+import logo from '@/images/logos/logo.png'
 
 export function Footer() {
   return (
@@ -11,7 +11,7 @@ export function Footer() {
       <Container>
         <div className="py-16">
         <Link href="#" aria-label="Home">
-              <img src={skyseer.src} alt="Skyseer Logo" className="mx-auto h-10 w-auto" />
+              <img src={logo.src} alt="Logo" className="mx-auto h-10 w-auto" />
             </Link>
 
           <nav className="mt-10 text-sm" aria-label="quick links">

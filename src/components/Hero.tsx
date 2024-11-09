@@ -1,48 +1,171 @@
 'use client'
 
-import Image from 'next/image'
+import { useState } from 'react'
+import { Dialog, DialogPanel } from '@headlessui/react'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
+import logo from '@/images/logos/logo.png'
+import robot1 from '@/images/robot1.png'
 
-import { Button } from '@/components/Button'
-import { Container } from '@/components/Container'
 
-export function Hero() {
+const navigation = [
+  { name: 'Features', href: '#' },
+  { name: 'Team', href: '#' },
+  { name: 'Company', href: '#' },
+]
+
+export default function Hero() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+
   return (
-    <Container className="pb-16 pt-20 text-center lg:pt-32">
-      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
-        Satellite & ML-driven{' '}
-        <span className="relative whitespace-nowrap text-blue-600">
-          <svg
-            aria-hidden="true"
-            viewBox="0 0 418 42"
-            className="absolute left-0 top-2/3 h-[0.58em] w-full fill-blue-300/70"
-            preserveAspectRatio="none"
-          >
-            <path d="M203.371.916c-26.013-2.078-76.686 1.963-124.73 9.946L67.3 12.749C35.421 18.062 18.2 21.766 6.004 25.934 1.244 27.561.828 27.778.874 28.61c.07 1.214.828 1.121 9.595-1.176 9.072-2.377 17.15-3.92 39.246-7.496C123.565 7.986 157.869 4.492 195.942 5.046c7.461.108 19.25 1.696 19.17 2.582-.107 1.183-7.874 4.31-25.75 10.366-21.992 7.45-35.43 12.534-36.701 13.884-2.173 2.308-.202 4.407 4.442 4.734 2.654.187 3.263.157 15.593-.78 35.401-2.686 57.944-3.488 88.365-3.143 46.327.526 75.721 2.23 130.788 7.584 19.787 1.924 20.814 1.98 24.557 1.332l.066-.011c1.201-.203 1.53-1.825.399-2.335-2.911-1.31-4.893-1.604-22.048-3.261-57.509-5.556-87.871-7.36-132.059-7.842-23.239-.254-33.617-.116-50.627.674-11.629.54-42.371 2.494-46.696 2.967-2.359.259 8.133-3.625 26.504-9.81 23.239-7.825 27.934-10.149 28.304-14.005.417-4.348-3.529-6-16.878-7.066Z" />
-          </svg>
-          <span className="relative">mineral exploration</span>
-        </span>{' '}
-      </h1>
+    <div className="bg-white">
+      <header className="absolute inset-x-0 top-0 z-50">
+        <nav aria-label="Global" className="mx-auto flex max-w-7xl items-center justify-between p-6 lg:px-8">
+          <div className="flex lg:flex-1">
+            <a href="#" className="-m-1.5 p-1.5">
+              <span className="sr-only">Your Company</span>
+            
 
-      <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        Powerful ore prospecting tool using multispectral satellite image analysis
-      </p>
-      <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="#contact">Contact Us</Button>
-        <Button
-          href="https://youtu.be/KTUaVd-4BxI"
-          variant="outline"
-        >
-          <svg
-            aria-hidden="true"
-            className="h-3 w-3 flex-none fill-blue-600 group-active:fill-current"
-          >
-            <path d="m9.997 6.91-7.583 3.447A1 1 0 0 1 1 9.447V2.553a1 1 0 0 1 1.414-.91L9.997 5.09c.782.355.782 1.465 0 1.82Z" />
-          </svg>
-          <span className="ml-3">Watch video</span>
-        </Button>
+                <img src={logo.src} alt="Logo" className="h-10 w-auto" />
+
+            </a>
+          </div>
+
+          <div className="flex lg:hidden">
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen(true)}
+              className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+            >
+              <span className="sr-only">Open main menu</span>
+              <Bars3Icon aria-hidden="true" className="h-6 w-6" />
+            </button>
+          </div>
+          <div className="hidden lg:flex lg:gap-x-12">
+            {navigation.map((item) => (
+              <a key={item.name} href={item.href} className="text-sm/6 font-semibold text-gray-900">
+                {item.name}
+              </a>
+            ))}
+          </div>
+
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          <span className="isolate inline-flex rounded-md shadow-sm">
+            <button
+              type="button"
+              className="relative inline-flex items-center rounded-l-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+            >
+              English
+            </button>
+            <button
+              type="button"
+              className="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+            >
+              中文
+            </button>
+            <button
+              type="button"
+              className="relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+            >
+              Español
+            </button>
+
+            <button
+              type="button"
+              className="relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+            >
+              हिन्दी
+            </button>
+          </span>
+
+          </div>
+
+          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+  
+            <a href="#" className="text-sm/6 font-semibold text-gray-900">
+              Log in <span aria-hidden="true">&rarr;</span>
+            </a>
+          </div>
+        </nav>
+        <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
+          <div className="fixed inset-0 z-50" />
+          <DialogPanel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
+            <div className="flex items-center justify-between">
+              <a href="#" className="-m-1.5 p-1.5">
+                <span className="sr-only">Your Company</span>
+
+                <img src={logo.src} alt="Logo" className="h-10 w-auto" />
+
+              </a>
+              <button
+                type="button"
+                onClick={() => setMobileMenuOpen(false)}
+                className="-m-2.5 rounded-md p-2.5 text-gray-700"
+              >
+                <span className="sr-only">Close menu</span>
+                <XMarkIcon aria-hidden="true" className="h-6 w-6" />
+              </button>
+            </div>
+            <div className="mt-6 flow-root">
+              <div className="-my-6 divide-y divide-gray-500/10">
+                <div className="space-y-2 py-6">
+                  {navigation.map((item) => (
+                    <a
+                      key={item.name}
+                      href={item.href}
+                      className="-mx-3 block rounded-lg px-3 py-2 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                    >
+                      {item.name}
+                    </a>
+                  ))}
+                </div>
+                <div className="py-6">
+                  <a
+                    href="#"
+                    className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
+                  >
+                    Log in
+                  </a>
+                </div>
+              </div>
+            </div>
+          </DialogPanel>
+        </Dialog>
+      </header>
+
+
+
+
+        <div className="mx-auto max-w-7xl px-6 py-32 sm:py-40 lg:px-8">
+          <div className="mx-auto max-w-2xl lg:mx-0 lg:grid lg:max-w-none lg:grid-cols-2 lg:gap-x-16 lg:gap-y-8 xl:grid-cols-1 xl:grid-rows-1 xl:gap-x-8">
+            <h1 className="max-w-2xl text-balance text-5xl font-semibold tracking-tight text-gray-900 sm:text-7xl lg:col-span-2 xl:col-auto">
+              The AI Phone Agent for Restaurants
+            </h1>
+
+            <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
+              <p className="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
+              24/7 voice AI for restaurants that answers calls, takes orders, handles questions, books reservations & more so you never miss a call again.
+              </p>
+              <div className="mt-10 flex items-center gap-x-6">
+                
+                <a
+                  href="#"
+                  className="rounded-md bg-[#219B1D] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#54c550] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                >
+                  Get started
+                </a>
+                <a href="#" className="text-sm/6 font-semibold text-gray-900">
+                  Learn more <span aria-hidden="true">→</span>
+                </a>
+              </div>
+            </div>
+            <img
+              alt=""
+              src={robot1.src}
+              className="mt-10  w-full max-w-lg rounded-2xl object-cover sm:mt-5 lg:mt-0 lg:max-w-none xl:row-span-2 xl:row-end-2 xl:mt-36"
+            />
+          </div>
+        </div>
       </div>
-      {/* Placeholder div to keep the Hero section size consistent */}
-      <div className="h-36 lg:h-44"></div>
-    </Container>
   )
 }
