@@ -7,10 +7,10 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - Skyseer',
-    default: 'Skyseer - Satellite & ML-driven mineral exploration',
+    default: 'Bistro IQ - AI Restaurant Phone Agent',
   },
   description:
-    'Powerful ore prospecting tool using multispectral satellite image analysis',
+    'Our AI handles all incoming restaurant calls',
 }
 
 const inter = Inter({

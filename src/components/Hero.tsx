@@ -8,9 +8,9 @@ import robot1 from '@/images/robot1.png'
 
 
 const navigation = [
-  { name: 'Features', href: '#' },
-  { name: 'Team', href: '#' },
-  { name: 'Company', href: '#' },
+  { name: 'How it Works', href: '#howitworks' },
+  { name: 'Features', href: '#features' },
+  { name: 'Team', href: '#team' },
 ]
 
 export default function Hero() {
@@ -65,8 +65,8 @@ export default function Hero() {
             </button>
             <button
               type="button"
-              className="relative -ml-px inline-flex items-center rounded-r-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
-            >
+              className="relative -ml-px inline-flex items-center bg-white px-3 py-2 text-sm font-semibold text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-10"
+             >
               Español
             </button>
 
@@ -80,12 +80,12 @@ export default function Hero() {
 
           </div>
 
-          <div className="hidden lg:flex lg:flex-1 lg:justify-end">
+          {/* <div className="hidden lg:flex lg:flex-1 lg:justify-end">
   
             <a href="#" className="text-sm/6 font-semibold text-gray-900">
               Log in <span aria-hidden="true">&rarr;</span>
             </a>
-          </div>
+          </div> */}
         </nav>
         <Dialog open={mobileMenuOpen} onClose={setMobileMenuOpen} className="lg:hidden">
           <div className="fixed inset-0 z-50" />
@@ -119,19 +119,21 @@ export default function Hero() {
                     </a>
                   ))}
                 </div>
-                <div className="py-6">
+                {/* <div className="py-6">
                   <a
                     href="#"
                     className="-mx-3 block rounded-lg px-3 py-2.5 text-base/7 font-semibold text-gray-900 hover:bg-gray-50"
                   >
                     Log in
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </DialogPanel>
         </Dialog>
       </header>
+
+
 
 
 
@@ -144,17 +146,17 @@ export default function Hero() {
 
             <div className="mt-6 max-w-xl lg:mt-0 xl:col-end-1 xl:row-start-1">
               <p className="text-pretty text-lg font-medium text-gray-500 sm:text-xl/8">
-              24/7 voice AI for restaurants that answers calls, takes orders, handles questions, books reservations & more so you never miss a call again.
+              Intelligent order assistant to help your restaurant manage incoming calls, reservations, and orders seamlessly. Capture every opportunity for revenue with an AI assistant that works around the clock
               </p>
               <div className="mt-10 flex items-center gap-x-6">
                 
                 <a
-                  href="#"
+                  href="#waitlist"
                   className="rounded-md bg-[#219B1D] px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-[#54c550] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                 >
-                  Get started
+                  Join the waitlist
                 </a>
-                <a href="#" className="text-sm/6 font-semibold text-gray-900">
+                <a href="#howitworks" className="text-sm/6 font-semibold text-gray-900">
                   Learn more <span aria-hidden="true">→</span>
                 </a>
               </div>
